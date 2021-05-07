@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Guess Random Num | JS</title>
+              <style type="text/css">
+                     body{
+                            margin:0;
+                            padding:0;
+                            background-color: #BABDB6;
+                     }
+                     h1{
+                            padding: 20px;
+                            color:#2D2D2D;
+                            font-family: helvetica ;
+                            font-weight: 20px;
+                            font-size: 40px;
+                            margin:0 auto;
+                            text-align: center;
+                            border-bottom: 2px groove grey;
+                     }
+                     #ques{
+                            padding:10px;
+                            padding-left: 10px;
+                            font-family:'Times New Roman';
+                            font-size: 30px;
+                     }
+                     #input{
+                            background-color: #555753; 
+                            color:white;
+                            width: 200px;
+                            height: 25px;
+                            margin-left: 10px;
+                            padding:10px;
+                            font-size: 25px;
+                            padding-left: 20px;
+                     }
+                     button{
+                            margin-left: 20px;
+                            height: 35px;
+                     }
+                     #line{
+                            border-bottom: 4px solid grey;
+                            padding: 10px 0 10px 0;
+
+                     }
+                     #rw{
+                            background-color:#ffffff;
+                            padding-left: 20px;
+                            padding:10px;
+                            margin-top: 20px;
+                     }
+                     #rwo{
+                           margin:0 auto;
+                           padding: 10px; 
+                           font-family: 'sans serif';
+                           font-weight: 30px;
+                           font-size: 20px;
+                     }
+                     #scorereplay{
+                            font-family: 'sans serif';
+                            font-size: 20px;
+                     }
+                     #plain{
+                            float: right;
+                            margin-right: 40px;
+                            width: 200px;
+                            background-color: #555753;
+                            color:white;
+                            font-weight: bold;
+                            font-size: 20px;
+                            padding-bottom: :10px;
+                     }
+                     #srt{
+                            padding-left: 20px;
+                     }
+                     #moreinfo{
+                            padding-top: 10px; 
+                     }
+                     #foot{
+                            border-top: 2px groove grey;
+                            padding:10px;
+                     }
+                     #foot a{
+                            float: right;
+                            color:#FF0000;
+                            font-weight: bold;
+                     }
+                     #foot a:hover{
+                            color:green;
+                            text-shadow: 3px 3px 3px white;
+                            text-decoration: none;
+
+                     }
+                     .headtext{
+                            float: right;
+                            color: white; 
+                            font-family: Helvetica, Arial;
+                            font-size: 250%;    
+                     }
+                     #info{
+                            font-family: Times;
+                            padding-left: 10px;
+                            font-size: 20px;
+                     }
+              </style>
+	</head>
+	<body>
+		<h1>Guess the Number</h1>
+              <div id="rw"> 
+                     <p id="rwo">Let's Get Started !!</p>
+              </div>
+              <div id="line"></div>
+              <div>
+                     <p id="ques">Guess number between 1 to 100 ?</p>
+       		<p><input type="text" placeholder="Enter Here !" id="input">
+       		<button id="guess"> Guess ? </button></p>
+              </div>
+              <div id="line"></div>
+              <div id="scorereplay">
+                     <p id="srt">You Guessed in : <button id="plain">Play Again</button></p>                     
+              </div>
+              <div id="line"></div>
+              <div id="moreinfo">
+                     <p id="info">Hope you like the game !!<br>
+The game is all about that you have to guess a number between 1 to 100 and enter it in input feild.<br><br><u>New Feature</u> : Type the guessed number in input feild and press Enter key!! [No need of pressing the 'Guess ?' button.] </p>
+              </div>
+              <div id="line"></div>
+              <div id="foot">          
+                     <strong><i>A Divinemonk creation !!</i></strong>
+                     <a href="https://github.com/Divinemonk/">Open Source Project | Github</a>
+              </div>
+		<script type="text/javascript">
+			
+                     var r = Math.floor(Math.random() * 99) + 1;
+                     var count = 0;
+                     var enter = document.getElementById("input");
+                     enter.addEventListener("keyup", function(event) {
+                            if (event.keyCode === 13) 
+                            {
+                                   event.preventDefault();
+                                   document.getElementById("guess").click();
+                            }
+                     });
+       		document.getElementById('guess').onclick = function() {
+                            var input = document.getElementById('input').value;
+                            document.getElementById('input').value='';
+                            if (input == r)
+                            {
+                                   document.getElementById('rwo').innerHTML='YOU HAVE GUESSED IT !!'
+                                   document.getElementById('rw').style.backgroundColor = '#98F60A';
+                                   document.getElementById('srt').innerHTML=document.getElementById('srt').innerHTML+count+" Attempts";
+                            }
+                            else
+                            {
+                                   if (input < r)
+                                   {
+                                          document.getElementById('rwo').innerHTML='YOU HAVE GUESSED A <b>Smaller</b> Number ['+input+']';
+                                          document.getElementById('rw').style.backgroundColor = '#E61414';
+                                          count++;
+                                   }
+                                   if (input > r)
+                                   {
+                                          document.getElementById('rwo').innerHTML='YOU HAVE GUESSED A <b>Greater</b> Number ['+input+']';
+                                          document.getElementById('rw').style.backgroundColor = 'yellow';
+                                          count++;
+                                   }
+                            }
+       		}
+                     document.getElementById('plain').onclick = function(){
+                            window.location.reload();
+                     }
+
+		</script>
+	</body>
+</html>

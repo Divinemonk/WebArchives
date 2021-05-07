@@ -1,0 +1,54 @@
+			body{
+				margin:0;
+				padding:0;
+			}
+
+			#container{
+				width:100%;
+				height :370px;
+				background-color: #FFFBD6;
+			}
+
+			#shape{
+				width:200px;
+				height: 200px;
+				background-color: red;
+				display:none;
+				border:2px solid #F08D8D;
+				padding:10px;
+				position: relative;
+			}
+
+			.time{
+				font-weight: bold;
+				padding:10px;
+				border:6px double #EF2929;
+				margin:5px 25px;
+				font-family: monospace;
+				font-size: 20px;
+			}
+
+			h1{
+				margin:0 auto;
+				background-color:#297FED; 
+				width:100%;
+				height: 60px;
+				color :#FFFFFF;
+				padding-top: 10px;
+				font-family: cursive;
+				font-size: 50px;
+				text-align: center;
+			}
+
+			#highscore{
+				float: right;
+				padding-right: 60px;
+			}
+
+			#instruct{
+				font-weight: bold;
+				font-family: sans-serif;
+				padding-left: 25px;
+				color: #545454;
+
+			}
